@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementUI", "EventManagementUI\EventManagementUI.csproj", "{9CF237C1-7370-4398-AC39-0990CA51CE3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManagementUI", "EventManagementUI\EventManagementUI.csproj", "{9CF237C1-7370-4398-AC39-0990CA51CE3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementLibrary", "EventManagementLibrary\EventManagementLibrary.csproj", "{56326AD5-AFB0-4B23-99AA-2C8EC87BF245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManagementLibrary", "EventManagementLibrary\EventManagementLibrary.csproj", "{56326AD5-AFB0-4B23-99AA-2C8EC87BF245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManagementAPI", "EventManagementAPI\EventManagementAPI.csproj", "{E5C2921C-165E-46DC-AB7E-956A2121D14F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManagementAPI", "EventManagementAPI\EventManagementAPI.csproj", "{E5C2921C-165E-46DC-AB7E-956A2121D14F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
