@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-EventManagementUI-02C8A799-9639-42C1-ABC7-458EEA2699C7</UserSecretsId>
   </PropertyGroup>
