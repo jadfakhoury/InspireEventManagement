@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.EntityFrameworkCore.Relational;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EventManagementLibrary.Models
