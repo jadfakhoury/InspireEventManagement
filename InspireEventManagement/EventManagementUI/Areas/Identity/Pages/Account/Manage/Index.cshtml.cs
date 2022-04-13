@@ -16,17 +16,15 @@ namespace EventManagementUI.Areas.Identity.Pages.Account.Manage
     public class IndexModel : PageModel
     {
         private readonly UserManager<CustomIdentityUser> _userManager;
-        private readonly SignInManager<CustomIdentityUser> _signInManager;
 
-        public IndexModel(
-            UserManager<CustomIdentityUser> userManager,
-            SignInManager<CustomIdentityUser> signInManager)
+        public IndexModel(UserManager<CustomIdentityUser> userManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         public string Email { get; set; }
+        public string Nationality { get; set; }
+        public string Gender { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
 
@@ -69,6 +67,8 @@ namespace EventManagementUI.Areas.Identity.Pages.Account.Manage
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;
+            Nationality = user.Nationality;
+            Gender = user.Gender;
 
             Input = new InputModel
             {
@@ -111,11 +111,16 @@ namespace EventManagementUI.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-
+            user.FirstName = Input.FirstName;
+            user.LastName = Input.LastName;
+            user.Gender = Input.Gender.Trim();
+            user.Nationality = Input.Nationality.Trim();
+            user.Location = Input.Location;
             await _userManager.UpdateAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+
 
         private List<string> GetGenders()
         {

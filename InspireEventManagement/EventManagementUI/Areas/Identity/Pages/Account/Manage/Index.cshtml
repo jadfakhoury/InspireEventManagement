@@ -11,6 +11,7 @@
     <div class="col-md-6">
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input id="MyLocation" asp-for="Input.Location" hidden />
             @if (Model.IsEmailConfirmed)
             {
                 <div class="form-floating input-group">
@@ -43,7 +44,15 @@
                 <select asp-for="Input.Nationality" class="form-control" autocomplete="Nationality" aria-required="true">
                     @foreach (var n in Model.Nationalities)
                     {
-                        <option value="@n">@n</option>
+                        if (n == Model.Nationality.Trim())
+                        {
+                            <option selected value="@n">@n</option>
+                        }
+                        else
+                        {
+                            <option value="@n">@n</option>
+                        }
+
                     }
                 </select>
                 <label asp-for="Input.Nationality"></label>
@@ -53,7 +62,14 @@
                 <select asp-for="Input.Gender" class="form-control" autocomplete="Gender" aria-required="true">
                     @foreach (var gender in Model.Genders)
                     {
-                        <option value="@gender">@gender</option>
+                        if (gender == Model.Gender.Trim())
+                        {
+                            <option selected value="@gender">@gender</option>
+                        }
+                        else
+                        {
+                            <option value="@gender">@gender</option>
+                        }
                     }
                 </select>
                 <label asp-for="Input.Gender"></label>

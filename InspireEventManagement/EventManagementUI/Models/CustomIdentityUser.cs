@@ -9,4 +9,5 @@ public class CustomIdentityUser : IdentityUser
     public string Nationality { get; set; }
     public string Gender { get; set; }
     public string Location { get; set; }
+    public bool Banned { get; set; }
 }
