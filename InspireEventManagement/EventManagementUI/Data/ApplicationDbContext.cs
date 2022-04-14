@@ -1,6 +1,7 @@
 ﻿using EventManagementUI.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using EventManagementLibrary.Models;
 
 namespace EventManagementUI.Data
 {
@@ -10,5 +11,6 @@ namespace EventManagementUI.Data
             : base(options)
         {
         }
+        public DbSet<EventManagementLibrary.Models.Event> Event { get; set; }
     }
 }

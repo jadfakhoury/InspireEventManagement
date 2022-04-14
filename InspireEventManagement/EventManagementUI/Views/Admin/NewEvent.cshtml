@@ -1,0 +1,96 @@
+﻿@model EventViewModel
+
+@{
+    ViewData["Title"] = "NewEvent";
+}
+
+<h1>NewEvent</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form data-ajax="true" data-ajax-method="post" asp-controller="Admin" asp-action="NewEvent" data-ajax-success="completed" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Title" class="control-label"></label>
+                <input asp-for="Event.Title" class="form-control" />
+                <span asp-validation-for="Event.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Description" class="control-label"></label>
+                <textarea asp-for="Event.Description" class="form-control"></textarea>
+                <span asp-validation-for="Event.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.EventStart" class="control-label"></label>
+                <input asp-for="Event.EventStart" class="form-control" />
+                <span asp-validation-for="Event.EventStart" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.EventEnd" class="control-label"></label>
+                <input asp-for="Event.EventEnd" class="form-control" />
+                <span asp-validation-for="Event.EventEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Images" class="control-label"></label>
+                <input id="multiUploadBtn" asp-for="detailsImageList" class="form-control-file" multiple="multiple" />
+                <span asp-validation-for="detailsImageList" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="margin-top:15px;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12" style="text-align:center;margin-bottom:25px;margin-top:30px;">
+            <span style="font-size:23px; font-weight:bold; color:black !important;margin-right:30px">Uploaded Images</span>
+            <input id="clearBtn" type="button" value="Clear New" class="btn btn-primary" style="margin-top:0;padding-left:15px;padding-right:15px;display:inline-block !important;" />
+        </div>
+        <div id="detailsGallery" class="form-group col-md-12" style="align-content:center !important; justify-content:center !important; display:inline-block;">
+        </div>
+    </div>
+    <div id="infoModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size:15px; " id="modalMessage"></p>
+                </div>
+                <div id="confirmation" class="modal-footer">
+                    <form method="get" asp-action="EventsList"><button type="submit" class="btn btn-primary"> OK </button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="EventsList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+<script>
+
+    $(document).ready(function () {
+        $("#clearBtn").on("click", function () {
+            $("#multiUploadBtn").val("");
+            $("#detailsGallery").find('.newImg').remove();
+        });
+
+        $("#uploadBtn").attr("required", "required");
+    });
+
+</script>
+}

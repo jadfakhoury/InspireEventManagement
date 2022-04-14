@@ -9,10 +9,15 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string appDir = Environment.CurrentDirectory + "\\Data\\DB";
+string appDir = Directory.GetParent(Environment.CurrentDirectory).ToString() + "\\EventManagementUI\\Data\\DB";
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection").Replace("%ContentRoot%", appDir);
 builder.Services.AddDbContext<EventDBContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString,
+    sqlServerOptionsAction: options =>
+    {
+        options.EnableRetryOnFailure();
+    }
+));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -36,6 +41,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Guest", policy => policy.RequireClaim("Role", "Admin", "User", "Guest"));
+    options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
+    options.AddPolicy("User", policy => policy.RequireClaim("Role", "Admin", "User"));
+});
+
 builder.Services.AddScoped<GenericCRUD>();
 
 
@@ -48,7 +60,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,5 +1,6 @@
 using EventManagementUI.Data;
 using EventManagementUI.Models;
+using EventManagementUI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +26,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Identity/Account/AccessDenied";
     options.SlidingExpiration = true;
 });
+
+builder.Services.AddScoped<GlobalMethods>();
+builder.Services.AddScoped<APIRequests>();
 
 var app = builder.Build();
 

@@ -22,12 +22,13 @@ public class GenericCRUD
         dbContext = _dbContext;
     }
 
-    internal async Task Create<T>(T item) where T : class
+    internal async Task<int> Create<T>(T item) where T : class, IDBObject
     {
         try
         {
             dbContext.Set<T>().Add(item);
             await dbContext.SaveChangesAsync();
+            return item.Id;
         }
         catch (Exception e)
         {

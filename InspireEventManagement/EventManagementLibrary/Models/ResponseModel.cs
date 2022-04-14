@@ -12,12 +12,11 @@ namespace BookstopNetModels.Models
         public string StatusDescription { get; set; }
         public string Message { get; set; }
 
-        public ResponseModel() { }
 
         public ResponseModel(Exception e)
         {
             this.StatusCode = "Exception";
-            this.StatusDescription = String.IsNullOrEmpty(e.InnerException.Message) ? "Error" : e.InnerException.Message;
+            this.StatusDescription = "Something went wrong!";
             this.Message = e.Message;
         }
 

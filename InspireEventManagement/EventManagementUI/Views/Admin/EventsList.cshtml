@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Events List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-md-10">
+        <input type="button" style="float:right; width:115px;height:40px; margin-bottom:15px;" onclick="location.href='@Url.Action("NewEvent", "Admin")'" value="Add Event +" class="btn btn-primary" />
+        <section id="EventsListTable">
+        </section>
+    </div>
+</div>
+
+
+@section Scripts {
+<script>
+    viewTable('/Admin/EventsTablePartial/', 'EventsListTable', 'EventsTable');
+</script>
+}
