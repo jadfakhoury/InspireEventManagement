@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using EventManagementAPI.Repositories;
+using EventManagementLibrary.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventManagementUI.Controllers;
@@ -6,11 +8,20 @@ namespace EventManagementUI.Controllers;
 [Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {
-    [HttpGet]
-    public IActionResult Events()
+    private readonly ILogger<AdminController> _logger;
+    private readonly GenericCRUD _genericCRUD;
+
+    public AdminController(ILogger<AdminController> logger, GenericCRUD genericCRUD)
     {
-        return View();
+        _logger = logger;
+        _genericCRUD = genericCRUD;
     }
+    //[HttpGet("GetEventsList")]
+    //public IActionResult EventsList()
+    //{
+    //    List<Event> events = _genericCRUD.GetList<Event>();
+    //    return View();
+    //}
 
     //[HttpGet]
     //public async Task<IActionResult> EventsTablePartial()

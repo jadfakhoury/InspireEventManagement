@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EventManagementAPI\EventManagementAPI.csproj" />
     <ProjectReference Include="..\EventManagementLibrary\EventManagementLibrary.csproj" />
   </ItemGroup>
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore.Metadata;
+using EventManagementLibrary.Models;
 
-namespace EventManagementLibrary.Models
+namespace EventManagementLibrary.DBContext
 {
     public partial class EventDBContext : DbContext
     {
@@ -21,11 +22,7 @@ namespace EventManagementLibrary.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=C:\\InspireEventManagement\\InspireEventManagement\\EventManagementUI\\Data\\DB\\EventManagementDB;Trusted_Connection=True;MultipleActiveResultSets=true");
-            }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
