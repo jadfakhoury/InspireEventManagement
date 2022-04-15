@@ -45,6 +45,9 @@
                             <li class="nav-item" style="padding-left: 15px;">
                                 <a asp-controller="User" asp-action="EventsList" class="nav-link text-dark">Events</a>
                             </li>
+                            <li class="nav-item" style="padding-left: 15px;">
+                                <a asp-controller="User" asp-action="EventsCalendar" class="nav-link text-dark">Calendar</a>
+                            </li>
                         }
 
                     </ul>
@@ -71,8 +74,8 @@
     <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" href="~/fullcalendar/lib/main.js" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="~/fullcalendar/lib/main.js" ></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "NewEvent";
+}
+
+<h1>Events Calendar</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <div id='calendar'></div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        dayMaxEvents:true,
+        businessHours:true,
+        events: [
+            { 
+                title : "first event", 
+                start :"2022-04-15T08:00:00", 
+                end : "2022-04-17T08:00:00" 
+            }
+        ]
+      });
+      calendar.render();
+    });
+</script>
+}

@@ -97,6 +97,7 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult EventsCalendar()
     {
+        ViewData["events"] = new { title = "first event", start = "15-Apr-22T08:00:00", end = "17-Apr-22T08:00:00" };
         return View();
     }
 
