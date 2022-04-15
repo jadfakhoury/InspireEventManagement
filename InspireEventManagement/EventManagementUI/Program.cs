@@ -29,6 +29,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<GlobalMethods>();
 builder.Services.AddScoped<APIRequests>();
+builder.Services.AddSingleton<GlobalConfig>();
 
 var app = builder.Build();
 

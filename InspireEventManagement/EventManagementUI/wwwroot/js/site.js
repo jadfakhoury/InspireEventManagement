@@ -3,6 +3,7 @@
         destroy: true,
         "paging": true
     });
+
 });
 
 
@@ -62,3 +63,48 @@ function readURLMulti(input) {
 $("#multiUploadBtn").change(function () {
     readURLMulti(this);
 });
+
+function Delete(url, id, name, table, listTable) {
+    $('#confirm').dialog({
+        resizable: false,
+        width: 400,
+        height: 200,
+        modal: true,
+        open: function (event, ui) {
+            $('#message').html("Are you sure you want to delete this " + name + "?");
+        }
+    }).dialog("option", "buttons", [
+        {
+            text: "Yes",
+            width: "80",
+            click: function () {
+                $(this).dialog('close');
+                $.ajax({
+                    url: url + id,
+                    dataType: "html",
+                    type: "GET",
+                    async: true,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        $("#" + listTable).html(data);
+                        $("#" + table).DataTable({
+                            destroy: true,
+                            "paging": true
+                        });
+                    },
+                    error: function (xhr) {
+                        window.location.href = "/Error?StatusCode=444&StatusDescription=Error&StatusMessage=" + xhr.responseText;
+                    }
+                });
+            }
+        },
+        {
+            text: "No",
+            width: "80",
+            click: function () {
+                $(this).dialog('close');
+            }
+        }
+    ]);
+}

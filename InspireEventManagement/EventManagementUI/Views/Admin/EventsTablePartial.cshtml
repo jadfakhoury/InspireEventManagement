@@ -5,8 +5,10 @@
 <table id="EventsTable" style="width:100%">
     <thead>
         <tr>
+            <th hidden></th>
             <th>Title</th>
             <th>Description</th>
+            <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -16,21 +18,23 @@
         {
             @foreach (var item in Model)
             {
-                <tr role="row" class="odd">
+                <tr role="row" class="odd clickable-row event-row">
+                    <td hidden>@item.Id</td>
                     <td>@item.Title</td>
                     <td>@item.Description</td>
                     <td>
-                        <span style="color:darkred;font-size:23px;font-weight:bold;">
-                            <a href="javascript:void(0)" onclick="location.href='@Url.Action("EditEvent", "Admin", new { Id = item.Id })'">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a>
+                        <span>
+                            <a class="bi bi-eye-fill" href="javascript:void(0)" onclick="location.href='@Url.Action("EventDetails", "Admin", new { Id = item.Id })'"></a>
                         </span>
                     </td>
                     <td>
                         <span style="color:darkred;font-size:23px;font-weight:bold;">
-                            <a href="javascript:void(0)" onclick="Delete('/Admin/DeleteEvent/', @item.Id, 'Event', 'EventsListTable', 'EventsTable')">
-                                X
-                            </a>
+                            <a class="bi bi-pencil" href="javascript:void(0)" onclick="location.href='@Url.Action("EditEvent", "Admin", new { Id = item.Id })'"></a>
+                        </span>
+                    </td>
+                    <td>
+                        <span style="color:darkred;font-size:23px;font-weight:bold;">
+                            <a class="bi bi-trash-fill" href="javascript:void(0)" onclick="Delete('/Admin/DeleteEvent/', @item.Id, 'Event', 'EventsTable', 'EventsListTable')"></a>
                         </span>
                     </td>
                 </tr>
@@ -38,3 +42,8 @@
         }
     </tbody>
 </table>
+
+
+@section Scripts{
+
+}

@@ -4,12 +4,25 @@
 
 <h2>@ViewData["Title"]</h2>
 
+@if(ViewData["alert"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success.</strong> @ViewData["alert"]
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
+
+
 <div class="row">
     <div class="col-md-10">
         <input type="button" style="float:right; width:115px;height:40px; margin-bottom:15px;" onclick="location.href='@Url.Action("NewEvent", "Admin")'" value="Add Event +" class="btn btn-primary" />
         <section id="EventsListTable">
         </section>
     </div>
+</div>
+
+<div id="confirm" title="Confirm">
+  <p id="message"></p>
 </div>
 
 

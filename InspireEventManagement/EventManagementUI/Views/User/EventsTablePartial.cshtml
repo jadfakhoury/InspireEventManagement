@@ -1,0 +1,37 @@
+﻿@model List<Event>
+@{
+}
+
+<table id="EventsTable" style="width:100%">
+    <thead>
+        <tr>
+            <th hidden></th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr role="row" class="odd clickable-row event-row">
+                    <td hidden>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <span>
+                            <a class="bi bi-eye-fill" href="javascript:void(0)" onclick="location.href='@Url.Action("EventDetails", "User", new { Id = item.Id })'"></a>
+                        </span>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+
+}

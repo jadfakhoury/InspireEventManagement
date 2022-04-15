@@ -1,0 +1,113 @@
+﻿@model EventViewModel
+
+@{
+    ViewData["Title"] = "Edit Event";
+    List<string> ImagesList = new List<string>();
+    if(ViewData["ImagesList"] is not null)
+    {
+        ImagesList = ViewData["ImagesList"] as List<string>;
+    }
+}
+
+<h1>Edit Event</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form data-ajax="true" data-ajax-method="post" asp-controller="Admin" asp-action="EditEvent" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input asp-for="Event.Id" hidden />
+            <input asp-for="Event.Images" hidden />
+                        <input asp-for="Event.EventStart" type="text" hidden />
+            <input asp-for="Event.EventEnd" type="text" hidden />
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Title" class="control-label"></label>
+                <input asp-for="Event.Title" class="form-control" />
+                <span asp-validation-for="Event.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Description" class="control-label"></label>
+                <textarea asp-for="Event.Description" class="form-control"></textarea>
+                <span asp-validation-for="Event.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <input type="text" id="datetimes" class="form-control" />
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <label asp-for="Event.Images" class="control-label"></label>
+                <input id="multiUploadBtn" asp-for="detailsImageList" class="form-control-file" multiple="multiple" />
+                <span asp-validation-for="detailsImageList" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:15px;">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-8">
+        <div class="col-md-12" style="text-align:center;margin-bottom:25px;margin-top:30px;">
+            <span style="font-size:23px; font-weight:bold; color:black !important;margin-right:30px">Uploaded Images</span>
+        </div>
+        <div id="detailsGallery" class="form-group col-md-12" style="align-content:center !important; justify-content:center !important; display:inline-block;">
+            @if (ImagesList is not null && ImagesList.Count > 0)
+            {
+                int i = 0;
+                @foreach (var item in ImagesList)
+                {
+                    <div id="@i" class="parentDiv" style="width:200px; height:200px; display:inline-block;padding:10px;">
+                        <a href="/Images/@Model.Event.Images.Trim()/@item" data-toggle="lightbox">
+                            <img src="/Images/@Model.Event.Images.Trim()/@item" class="img-fluid" style="margin-left:auto; margin-right:auto; display:table">
+                        </a>
+                    </div>
+                    i++;
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+             event.preventDefault();
+             const lightbox = new Lightbox(el, options);
+             lightbox.show();
+         });
+
+ $(document).ready(function () {
+    $("#clearBtn").on("click", function () {
+        $("#multiUploadBtn").val("");
+        $("#detailsGallery").find('.newImg').remove();
+    });
+
+    $("#uploadBtn").attr("required", "required");
+
+
+
+
+        $('#datetimes').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+            format: 'DD-MMM-YY hh:mm:ss'
+            }
+        });
+
+        $('#Event_EventStart').val($("#datetimes").data("daterangepicker").startDate.format('DD-MMM-YY hh:mm:ss'));
+        $('#Event_EventEnd').val($("#datetimes").data("daterangepicker").endDate.format('DD-MMM-YY hh:mm:ss'));
+
+
+});
+
+
+
+$('#datetimes').on('apply.daterangepicker', function(ev, picker) {
+        $('#Event_EventStart').val(picker.startDate.format('DD-MMM-YY hh:mm:ss'));
+        $('#Event_EventEnd').val(picker.endDate.format('DD-MMM-YY hh:mm:ss'));
+});
+
+
+</script>
+}

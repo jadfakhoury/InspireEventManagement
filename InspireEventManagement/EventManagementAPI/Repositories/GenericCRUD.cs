@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using EventManagementLibrary.Models;
-using BookstopNetModels.Models;
 using EventManagementLibrary.DBContext;
 using EventManagementLibrary.Interfaces;
 

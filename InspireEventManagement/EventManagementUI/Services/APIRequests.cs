@@ -1,4 +1,4 @@
-﻿using BookstopNetModels.Models;
+﻿using EventManagementLibrary.Models;
 using EventManagementUI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -146,18 +146,19 @@ namespace EventManagementUI.Services
         //    }
         //}
 
-        internal async Task<ImageListUploadViewModel> POSTUploadHttpRequest(string controllerStr, List<IFormFile> files, string directory, Claim userClaim)
+        internal async Task<HttpResponseMessage> POSTUploadHttpRequest(string controllerStr, List<IFormFile> files, string directory, Claim userClaim)
         {
             try
             {
                 string guid = "";
 
                 string tokenString = publicMethods.GenerateJSONWebToken(userClaim);
-                ImageListUploadViewModel imageListViewModel = new ImageListUploadViewModel();
+                HttpResponseMessage response = new HttpResponseMessage();
                 using (var httpClient2 = new HttpClient())
                 {
                     publicMethods.InitiateHttpClient(tokenString, httpClient2);
                     MultipartFormDataContent content;
+
 
 
                     if (files.Count > 0)
@@ -178,16 +179,15 @@ namespace EventManagementUI.Services
                                 }
                                 }, "files", directory + '\\' + fileName);
 
-                                imageListViewModel.ImagesNames.Add(fileName);
                             }
 
-                            imageListViewModel.Response = await httpClient2.PostAsync(controllerStr, content);
+                            response = await httpClient2.PostAsync(controllerStr, content);
                         }
                     }
                     else
-                        imageListViewModel.Response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
+                        response = new HttpResponseMessage(System.Net.HttpStatusCode.NotFound);
                 }
-                return imageListViewModel;
+                return response;
             }
             catch (Exception e)
             {
