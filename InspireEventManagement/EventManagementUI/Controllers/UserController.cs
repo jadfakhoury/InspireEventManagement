@@ -3,6 +3,7 @@ using EventManagementUI.Models;
 using EventManagementUI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Security.Claims;
 
 namespace EventManagementUI.Controllers;
@@ -42,9 +43,9 @@ public class UserController : Controller
             HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventsList", userClaim);
             if (response.IsSuccessStatusCode)
             {
-                List<Event> majorServices = new List<Event>();
-                majorServices = await _globalMethods.DeserializeList<Event>(response);
-                return PartialView(majorServices);
+                List<Event> events = new List<Event>();
+                events = await _globalMethods.DeserializeList<Event>(response);
+                return PartialView(events);
             }
             else
             {
@@ -62,7 +63,7 @@ public class UserController : Controller
     }
 
     [HttpGet]
-    public async Task<ActionResult> EventDetails(int id)
+    public async Task<IActionResult> EventDetails(int id)
     {
 
         try
@@ -97,8 +98,16 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult EventsCalendar()
     {
-        ViewData["events"] = new { title = "first event", start = "15-Apr-22T08:00:00", end = "17-Apr-22T08:00:00" };
         return View();
+    }
+
+    [HttpGet]
+    public async Task<string> GetCalendarEvents(string start, string end)
+    {
+        Claim userClaim = _globalMethods.GetUserClaim(User);
+        HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventsList", userClaim);
+        var events = await response.Content.ReadAsStringAsync();
+        return events;
     }
 
     private List<string> GetFilesFrom(String searchFolder, String[] filters)

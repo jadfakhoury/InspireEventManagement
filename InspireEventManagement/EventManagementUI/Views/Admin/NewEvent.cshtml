@@ -11,8 +11,8 @@
     <div class="col-md-4">
         <form data-ajax="true" data-ajax-method="post" asp-controller="Admin" asp-action="NewEvent" enctype="multipart/form-data">
             @Html.AntiForgeryToken()
-            <input asp-for="Event.EventStart" type="text" hidden />
-            <input asp-for="Event.EventEnd" type="text" hidden />
+            <input asp-for="Event.Start" type="text" hidden />
+            <input asp-for="Event.End" type="text" hidden />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group" style="margin-top:15px;">
                 <label asp-for="Event.Title" class="control-label"></label>

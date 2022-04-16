@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.EntityFrameworkCore.Metadata;
 using EventManagementLibrary.Models;
 
 namespace EventManagementLibrary.DBContext
@@ -33,9 +30,9 @@ namespace EventManagementLibrary.DBContext
                     .HasMaxLength(400)
                     .IsFixedLength();
 
-                entity.Property(e => e.EventEnd).HasColumnType("datetime");
+                entity.Property(e => e.End).HasColumnType("datetime");
 
-                entity.Property(e => e.EventStart).HasColumnType("datetime");
+                entity.Property(e => e.Start).HasColumnType("datetime");
 
                 entity.Property(e => e.Images)
                     .HasMaxLength(50)

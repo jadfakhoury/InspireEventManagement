@@ -25,14 +25,14 @@
             <span asp-validation-for="Event.Description" class="text-danger"></span>
         </div>
         <div class="form-group" style="margin-top:15px;">
-            <label asp-for="Event.EventStart" class="control-label"></label>
-            <input asp-for="Event.EventStart" class="form-control" readonly />
-            <span asp-validation-for="Event.EventStart" class="text-danger"></span>
+            <label asp-for="Event.Start" class="control-label"></label>
+            <input asp-for="Event.Start" class="form-control" readonly />
+            <span asp-validation-for="Event.Start" class="text-danger"></span>
         </div>
         <div class="form-group" style="margin-top:15px;">
-            <label asp-for="Event.EventEnd" class="control-label"></label>
-            <input asp-for="Event.EventEnd" class="form-control" readonly />
-            <span asp-validation-for="Event.EventEnd" class="text-danger"></span>
+            <label asp-for="Event.End" class="control-label"></label>
+            <input asp-for="Event.End" class="form-control" readonly />
+            <span asp-validation-for="Event.End" class="text-danger"></span>
         </div>
     </div>
 
@@ -47,8 +47,8 @@
                 @foreach (var item in ImagesList)
                 {
                     <div id="@i" class="parentDiv" style="width:200px; height:200px; display:inline-block;padding:10px;">
-                        <a href="/Images/@Model.Event.Images.Trim()/@item" data-toggle="lightbox">
-                            <img src="/Images/@Model.Event.Images.Trim()/@item" class="img-fluid" style="margin-left:auto; margin-right:auto; display:table">
+                        <a href="/Images/@Model.Event.Images/@item" data-toggle="lightbox">
+                            <img src="/Images/@Model.Event.Images/@item" class="img-fluid" style="margin-left:auto; margin-right:auto; display:table">
                         </a>
                     </div>
                     i++;

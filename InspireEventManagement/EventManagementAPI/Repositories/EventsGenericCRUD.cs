@@ -10,12 +10,12 @@ using EventManagementLibrary.Interfaces;
 
 namespace EventManagementAPI.Repositories;
 
-public class GenericCRUD
+public class EventsGenericCRUD
 {
     private readonly EventDBContext dbContext;
-    private readonly ILogger<GenericCRUD> _logger;
+    private readonly ILogger<EventsGenericCRUD> _logger;
 
-    public GenericCRUD(ILogger<GenericCRUD> logger, EventDBContext _dbContext)
+    public EventsGenericCRUD(ILogger<EventsGenericCRUD> logger, EventDBContext _dbContext)
     {
         _logger = logger;
         dbContext = _dbContext;
@@ -37,43 +37,12 @@ public class GenericCRUD
         }
     }
 
-    internal async Task CreateList<T>(List<T> items) where T : class
-    {
-        try
-        {
-            dbContext.Set<T>().AddRange(items);
-            await dbContext.SaveChangesAsync();
-        }
-        catch (Exception e)
-        {
-            ResponseModel error = new ResponseModel(e);
-            _logger.LogError("\nSource: GenericCRUD\n" + error.ToString());
-            throw;
-        }
-    }
-
     internal async Task Delete<T>(int id) where T : class, IDBObject
     {
         try
         {
             T toDelete = dbContext.Set<T>().Where(e => e.Id.Equals(id)).SingleOrDefault();
             dbContext.Remove(toDelete);
-            await dbContext.SaveChangesAsync();
-        }
-        catch (Exception e)
-        {
-            ResponseModel error = new ResponseModel(e);
-            _logger.LogError("\nSource: GenericCRUD\n" + error.ToString());
-            throw;
-        }
-    }
-
-    internal async Task DeleteList<T>(List<int> ids) where T : class, IDBObject
-    {
-        try
-        {
-            List<T> toDelete = dbContext.Set<T>().Where(e => ids.Contains(e.Id)).ToList();
-            dbContext.RemoveRange(toDelete);
             await dbContext.SaveChangesAsync();
         }
         catch (Exception e)
@@ -118,34 +87,6 @@ public class GenericCRUD
         try
         {
             return dbContext.Set<T>().ToList();
-        }
-        catch (Exception e)
-        {
-            ResponseModel error = new ResponseModel(e);
-            _logger.LogError("\nSource: GenericCRUD\n" + error.ToString());
-            throw;
-        }
-    }
-
-    internal List<T> GetList<T>(List<int> list) where T : class, IDBObject
-    {
-        try
-        {
-            return dbContext.Set<T>().Where(e => list.Contains(e.Id)).ToList();
-        }
-        catch (Exception e)
-        {
-            ResponseModel error = new ResponseModel(e);
-            _logger.LogError("\nSource: GenericCRUD\n" + error.ToString());
-            throw;
-        }
-    }
-
-    internal T GetSingle<T>() where T : class, IDBObject
-    {
-        try
-        {
-            return dbContext.Set<T>().FirstOrDefault();
         }
         catch (Exception e)
         {

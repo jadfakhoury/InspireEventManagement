@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "NewEvent";
 }
 
@@ -20,13 +19,12 @@
         initialView: 'dayGridMonth',
         dayMaxEvents:true,
         businessHours:true,
-        events: [
-            { 
-                title : "first event", 
-                start :"2022-04-15T08:00:00", 
-                end : "2022-04-17T08:00:00" 
-            }
-        ]
+        eventClick: function(info) {
+        var event = info.event;
+    console.log(event.id);
+    location.href='@Url.Action("EventDetails", "User")/' + event.id;
+  },
+        events: '/User/GetCalendarEvents'
       });
       calendar.render();
     });

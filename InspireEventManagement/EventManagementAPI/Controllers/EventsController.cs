@@ -14,9 +14,9 @@ namespace EventManagementAPI.Controllers;
 public class EventsController : ControllerBase
 {
     private readonly ILogger<EventsController> _logger;
-    private readonly GenericCRUD _genericCRUD;
+    private readonly EventsGenericCRUD _genericCRUD;
 
-    public EventsController(ILogger<EventsController> logger, GenericCRUD genericCRUD)
+    public EventsController(ILogger<EventsController> logger, EventsGenericCRUD genericCRUD)
     {
         _logger = logger;
         _genericCRUD = genericCRUD;

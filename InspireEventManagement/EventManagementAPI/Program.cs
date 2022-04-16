@@ -4,6 +4,7 @@ using EventManagementLibrary.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,16 +13,18 @@ var builder = WebApplication.CreateBuilder(args);
 string appDir = Directory.GetParent(Environment.CurrentDirectory).ToString() + "\\EventManagementUI\\Data\\DB";
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection").Replace("%ContentRoot%", appDir);
 builder.Services.AddDbContext<EventDBContext>(options =>
-    options.UseSqlServer(connectionString,
-    sqlServerOptionsAction: options =>
-    {
-        options.EnableRetryOnFailure();
-    }
-));
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var logger = new LoggerConfiguration()
+  .ReadFrom.Configuration(builder.Configuration)
+  .Enrich.FromLogContext()
+  .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -48,7 +51,9 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("User", policy => policy.RequireClaim("Role", "Admin", "User"));
 });
 
-builder.Services.AddScoped<GenericCRUD>();
+builder.Services.AddScoped<EventsGenericCRUD>();
+
+
 
 
 var app = builder.Build();

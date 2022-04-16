@@ -21,3 +21,11 @@ body {
     display:flex;
 }
 
+.fc-event{
+    cursor: pointer;
+}
+
+#datetimes {
+    cursor:pointer;
+    background-color: white;
+}
