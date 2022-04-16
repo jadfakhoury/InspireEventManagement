@@ -1,0 +1,432 @@
+[2022-04-16 16:41:16.466 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 16:41:16.756 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 16:41:16.756 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 16:41:16.759 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 16:41:16.759 +03:00  INF]  Hosting environment: Development
+[2022-04-16 16:41:16.759 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 16:41:17.523 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 16:41:17.983 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 464.8529ms
+[2022-04-16 16:41:18.180 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 16:41:18.184 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.7131ms
+[2022-04-16 16:41:18.802 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 16:41:18.971 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.9286ms
+[2022-04-16 16:41:27.579 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:41:27.853 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:27.862 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:41:28.556 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:41:29.093 +03:00  INF]  Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:41:29.165 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:41:29.185 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 1317.408ms
+[2022-04-16 16:41:29.186 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:29.190 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 1610.8180ms
+[2022-04-16 16:41:31.710 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/35 - -
+[2022-04-16 16:41:31.713 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:41:31.724 +03:00  INF]  Route matched with {action = "GetEventById", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEventById(Int32) on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:41:31.777 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:41:31.910 +03:00  INF]  Executed DbCommand (21ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2022-04-16 16:41:31.911 +03:00  INF]  Executing OkObjectResult, writing value of type 'EventManagementLibrary.Models.Event'.
+[2022-04-16 16:41:31.912 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI) in 187.3122ms
+[2022-04-16 16:41:31.912 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:41:31.912 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/35 - - - 200 - application/json;+charset=utf-8 201.9398ms
+[2022-04-16 16:41:34.994 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:41:34.997 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:34.997 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:41:35.007 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:41:35.008 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:41:35.009 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:41:35.009 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 11.9592ms
+[2022-04-16 16:41:35.009 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:35.009 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 14.9611ms
+[2022-04-16 16:41:36.438 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/35 - -
+[2022-04-16 16:41:36.439 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:41:36.439 +03:00  INF]  Route matched with {action = "GetEventById", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEventById(Int32) on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:41:36.440 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:41:36.443 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2022-04-16 16:41:36.443 +03:00  INF]  Executing OkObjectResult, writing value of type 'EventManagementLibrary.Models.Event'.
+[2022-04-16 16:41:36.443 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI) in 4.2955ms
+[2022-04-16 16:41:36.443 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:41:36.444 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/35 - - - 200 - application/json;+charset=utf-8 5.1516ms
+[2022-04-16 16:41:39.126 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:41:39.127 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:39.127 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:41:39.128 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:41:39.128 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:41:39.129 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:41:39.129 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 1.805ms
+[2022-04-16 16:41:39.129 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:41:39.129 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 2.5843ms
+[2022-04-16 16:42:01.230 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:42:01.230 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:01.230 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:01.231 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:01.231 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:42:01.232 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:42:01.232 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 1.8209ms
+[2022-04-16 16:42:01.232 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:01.232 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 2.5354ms
+[2022-04-16 16:42:04.777 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:42:04.778 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:04.778 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:04.778 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:04.779 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:42:04.779 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:42:04.779 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 1.4054ms
+[2022-04-16 16:42:04.779 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:04.779 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 2.1534ms
+[2022-04-16 16:42:06.801 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/38 - -
+[2022-04-16 16:42:06.801 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:42:06.801 +03:00  INF]  Route matched with {action = "GetEventById", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEventById(Int32) on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:06.802 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:06.803 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2022-04-16 16:42:06.803 +03:00  INF]  Executing OkObjectResult, writing value of type 'EventManagementLibrary.Models.Event'.
+[2022-04-16 16:42:06.803 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI) in 1.5759ms
+[2022-04-16 16:42:06.803 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:42:06.803 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/38 - - - 200 - application/json;+charset=utf-8 2.2480ms
+[2022-04-16 16:42:08.606 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:42:08.606 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:08.607 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:08.607 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:08.608 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:42:08.608 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:42:08.608 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 1.4075ms
+[2022-04-16 16:42:08.608 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:08.608 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 2.1790ms
+[2022-04-16 16:42:10.299 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - -
+[2022-04-16 16:42:10.299 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:10.299 +03:00  INF]  Route matched with {action = "EventsList", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EventsList() on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:10.300 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:10.305 +03:00  INF]  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+[2022-04-16 16:42:10.306 +03:00  INF]  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[EventManagementLibrary.Models.Event, EventManagementLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-04-16 16:42:10.306 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI) in 6.3063ms
+[2022-04-16 16:42:10.306 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.EventsList (EventManagementAPI)'
+[2022-04-16 16:42:10.306 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventsList - - - 200 - application/json;+charset=utf-8 7.1579ms
+[2022-04-16 16:42:11.532 +03:00  INF]  Request starting HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/37 - -
+[2022-04-16 16:42:11.532 +03:00  INF]  Executing endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:42:11.532 +03:00  INF]  Route matched with {action = "GetEventById", controller = "Events"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEventById(Int32) on controller EventManagementAPI.Controllers.EventsController (EventManagementAPI).
+[2022-04-16 16:42:11.542 +03:00  INF]  Entity Framework Core 6.0.4 initialized 'EventDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.3' with options: None
+[2022-04-16 16:42:11.544 +03:00  INF]  Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [e].[Id], [e].[Description], [e].[End], [e].[Images], [e].[Start], [e].[Title]
+FROM [Events] AS [e]
+WHERE [e].[Id] = @__id_0
+[2022-04-16 16:42:11.545 +03:00  INF]  Executing OkObjectResult, writing value of type 'EventManagementLibrary.Models.Event'.
+[2022-04-16 16:42:11.545 +03:00  INF]  Executed action EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI) in 12.7548ms
+[2022-04-16 16:42:11.545 +03:00  INF]  Executed endpoint 'EventManagementAPI.Controllers.EventsController.GetEventById (EventManagementAPI)'
+[2022-04-16 16:42:11.545 +03:00  INF]  Request finished HTTP/1.1 GET https://localhost:7049/api/Events/GetEventById/37 - - - 200 - application/json;+charset=utf-8 13.4772ms
+[2022-04-16 19:20:12.831 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:20:13.183 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:20:13.183 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:20:13.197 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:20:13.197 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:20:13.197 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:20:15.172 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:20:16.083 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 911.4660ms
+[2022-04-16 19:20:16.568 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:20:16.571 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.1955ms
+[2022-04-16 19:20:17.437 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:20:17.573 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 135.5777ms
+[2022-04-16 19:22:44.129 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:22:44.142 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 13.2571ms
+[2022-04-16 19:22:44.194 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:22:44.194 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.4881ms
+[2022-04-16 19:22:44.611 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:22:44.614 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 3.3008ms
+[2022-04-16 19:23:41.838 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:23:42.157 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:23:42.160 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:23:42.163 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:23:42.163 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:23:42.163 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:23:43.275 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:23:43.547 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 275.2860ms
+[2022-04-16 19:23:43.560 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:23:43.565 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.0324ms
+[2022-04-16 19:23:44.497 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:23:44.614 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 117.0811ms
+[2022-04-16 19:24:14.180 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:24:14.464 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:24:14.465 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:24:14.476 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:24:14.476 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:24:14.476 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:24:15.413 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:24:15.890 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 482.9604ms
+[2022-04-16 19:24:15.977 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:24:15.983 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.8037ms
+[2022-04-16 19:24:16.947 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:24:17.081 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 133.7724ms
+[2022-04-16 19:25:15.961 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:25:15.980 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 18.4629ms
+[2022-04-16 19:25:16.010 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:25:16.010 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.3411ms
+[2022-04-16 19:25:16.376 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:25:16.379 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 3.3090ms
+[2022-04-16 19:25:51.735 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:25:51.751 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 15.8737ms
+[2022-04-16 19:25:51.910 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:25:51.910 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.2845ms
+[2022-04-16 19:25:52.260 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:25:52.264 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 3.4515ms
+[2022-04-16 19:36:56.575 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:36:56.924 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:36:56.924 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:36:56.933 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:36:56.933 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:36:56.933 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:36:57.669 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:36:58.261 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 595.0621ms
+[2022-04-16 19:36:58.339 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:36:58.344 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.1720ms
+[2022-04-16 19:36:59.263 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:36:59.414 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 151.3282ms
+[2022-04-16 19:41:10.439 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:41:10.460 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 20.4648ms
+[2022-04-16 19:41:10.504 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:41:10.504 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.3346ms
+[2022-04-16 19:41:10.966 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:41:10.975 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.9118ms
+[2022-04-16 19:43:09.337 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:43:09.371 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 33.0416ms
+[2022-04-16 19:43:09.417 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:43:09.417 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.8453ms
+[2022-04-16 19:43:10.209 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:43:10.211 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1.8476ms
+[2022-04-16 19:46:55.847 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:46:56.379 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:46:56.379 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:46:56.382 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:46:56.382 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:46:56.382 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:46:59.461 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger - -
+[2022-04-16 19:46:59.627 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger - - - 301 0 - 169.0912ms
+[2022-04-16 19:46:59.641 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:46:59.847 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 206.3972ms
+[2022-04-16 19:46:59.875 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui-bundle.js - -
+[2022-04-16 19:46:59.875 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui-standalone-preset.js - -
+[2022-04-16 19:46:59.875 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui.css - -
+[2022-04-16 19:46:59.882 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:46:59.889 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 7.1413ms
+[2022-04-16 19:47:00.034 +03:00  INF]  Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+[2022-04-16 19:47:00.034 +03:00  INF]  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+[2022-04-16 19:47:00.034 +03:00  INF]  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+[2022-04-16 19:47:00.035 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 160.0270ms
+[2022-04-16 19:47:00.035 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 159.8986ms
+[2022-04-16 19:47:00.035 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui.css - - - 200 143632 text/css 159.6499ms
+[2022-04-16 19:47:00.528 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:47:00.577 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/favicon-32x32.png - -
+[2022-04-16 19:47:00.577 +03:00  INF]  Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+[2022-04-16 19:47:00.578 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/favicon-32x32.png - - - 200 628 image/png 0.8811ms
+[2022-04-16 19:47:00.744 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 216.3647ms
+[2022-04-16 19:47:29.379 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:47:29.734 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:47:29.735 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:47:29.746 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:47:29.746 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:47:29.746 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:47:31.488 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger - -
+[2022-04-16 19:47:31.879 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger - - - 301 0 - 398.4643ms
+[2022-04-16 19:47:31.893 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:47:32.084 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 190.4731ms
+[2022-04-16 19:47:32.098 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui.css - -
+[2022-04-16 19:47:32.098 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui-bundle.js - -
+[2022-04-16 19:47:32.099 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/swagger-ui-standalone-preset.js - -
+[2022-04-16 19:47:32.099 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:47:32.102 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 2.7983ms
+[2022-04-16 19:47:32.175 +03:00  INF]  Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+[2022-04-16 19:47:32.180 +03:00  INF]  Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+[2022-04-16 19:47:32.200 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 101.0950ms
+[2022-04-16 19:47:32.201 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui.css - - - 200 143632 text/css 103.7206ms
+[2022-04-16 19:47:32.301 +03:00  INF]  Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+[2022-04-16 19:47:32.301 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 202.4634ms
+[2022-04-16 19:47:32.886 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:47:33.175 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 289.3088ms
+[2022-04-16 19:49:16.369 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:49:16.664 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:49:16.665 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:49:16.668 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:49:16.668 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:49:16.668 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:49:26.410 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:49:26.777 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 371.3001ms
+[2022-04-16 19:49:26.808 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:49:26.813 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.1867ms
+[2022-04-16 19:49:27.048 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:49:27.236 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 187.7989ms
+[2022-04-16 19:51:28.531 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:51:28.554 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 22.8972ms
+[2022-04-16 19:51:28.643 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:51:28.643 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.5558ms
+[2022-04-16 19:51:28.981 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:51:28.984 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.8145ms
+[2022-04-16 19:52:03.415 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:52:03.441 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 25.4983ms
+[2022-04-16 19:52:03.586 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:52:03.586 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.2520ms
+[2022-04-16 19:52:04.147 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:52:04.149 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.1813ms
+[2022-04-16 19:52:53.264 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:52:53.280 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 16.0233ms
+[2022-04-16 19:52:53.352 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:52:53.352 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.3154ms
+[2022-04-16 19:52:53.876 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:52:53.878 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1.6971ms
+[2022-04-16 19:56:41.172 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 19:56:41.469 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 19:56:41.469 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 19:56:41.473 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 19:56:41.473 +03:00  INF]  Hosting environment: Development
+[2022-04-16 19:56:41.473 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 19:56:42.149 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 19:56:42.710 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 564.0135ms
+[2022-04-16 19:56:42.812 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 19:56:42.815 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.3802ms
+[2022-04-16 19:56:43.731 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 19:56:43.908 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 177.2111ms
+[2022-04-16 20:00:13.919 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 20:00:14.248 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 20:00:14.248 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 20:00:14.251 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 20:00:14.251 +03:00  INF]  Hosting environment: Development
+[2022-04-16 20:00:14.251 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 20:00:15.365 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:00:15.682 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 320.6974ms
+[2022-04-16 20:00:15.735 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:00:15.740 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.0614ms
+[2022-04-16 20:00:16.590 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:00:16.713 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 123.1702ms
+[2022-04-16 20:03:19.955 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 20:03:20.278 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 20:03:20.278 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 20:03:20.282 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 20:03:20.282 +03:00  INF]  Hosting environment: Development
+[2022-04-16 20:03:20.282 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 20:03:20.878 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:03:21.511 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 636.5887ms
+[2022-04-16 20:03:21.702 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:03:21.707 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.1710ms
+[2022-04-16 20:03:22.971 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:03:23.120 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.4374ms
+[2022-04-16 20:21:50.995 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 20:21:51.324 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 20:21:51.324 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 20:21:51.329 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 20:21:51.331 +03:00  INF]  Hosting environment: Development
+[2022-04-16 20:21:51.331 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 20:21:52.518 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:21:52.990 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 481.2257ms
+[2022-04-16 20:21:53.183 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:21:53.187 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 4.7244ms
+[2022-04-16 20:21:53.859 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:21:53.985 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.0990ms
+[2022-04-16 20:34:48.717 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:34:48.734 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 16.4724ms
+[2022-04-16 20:34:48.811 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:34:48.811 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.3403ms
+[2022-04-16 20:34:49.081 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:34:49.083 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.6939ms
+[2022-04-16 20:35:16.298 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:35:16.309 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 11.2517ms
+[2022-04-16 20:35:16.358 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:35:16.360 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 2.2697ms
+[2022-04-16 20:35:16.597 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:35:16.599 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1.7146ms
+[2022-04-16 20:35:46.199 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 20:35:46.839 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 20:35:46.839 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 20:35:46.845 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 20:35:46.845 +03:00  INF]  Hosting environment: Development
+[2022-04-16 20:35:46.845 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 20:35:47.897 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:35:48.557 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 666.0829ms
+[2022-04-16 20:35:48.671 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:35:48.674 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.2876ms
+[2022-04-16 20:35:49.424 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:35:49.590 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.5738ms
+[2022-04-16 20:38:37.920 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 20:38:38.264 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 20:38:38.264 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 20:38:38.268 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 20:38:38.268 +03:00  INF]  Hosting environment: Development
+[2022-04-16 20:38:38.268 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 20:38:39.461 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:38:39.857 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 400.6038ms
+[2022-04-16 20:38:39.919 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:38:39.922 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 2.8854ms
+[2022-04-16 20:38:40.721 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:38:40.834 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.7314ms
+[2022-04-16 20:50:25.762 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 20:50:25.781 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 18.9910ms
+[2022-04-16 20:50:25.835 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 20:50:25.841 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 4.4756ms
+[2022-04-16 20:50:26.302 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 20:50:26.309 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 6.8367ms
+[2022-04-16 21:12:25.469 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 21:12:25.808 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 21:12:25.809 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 21:12:25.819 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 21:12:25.819 +03:00  INF]  Hosting environment: Development
+[2022-04-16 21:12:25.819 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 21:12:26.493 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:12:27.107 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 620.4983ms
+[2022-04-16 21:12:27.415 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:12:27.421 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 5.9003ms
+[2022-04-16 21:12:28.338 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:12:28.475 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 136.6265ms
+[2022-04-16 21:13:01.403 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:13:01.415 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 11.5718ms
+[2022-04-16 21:13:01.448 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:13:01.448 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.4557ms
+[2022-04-16 21:13:01.680 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:13:01.683 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.9749ms
+[2022-04-16 21:13:18.771 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:13:18.835 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 63.1814ms
+[2022-04-16 21:13:18.959 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:13:18.961 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 1.7555ms
+[2022-04-16 21:13:19.325 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:13:19.328 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.0878ms
+[2022-04-16 21:14:07.472 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:14:07.488 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 15.9725ms
+[2022-04-16 21:14:07.559 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:14:07.560 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.6490ms
+[2022-04-16 21:14:07.966 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:14:07.969 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.1531ms
+[2022-04-16 21:15:53.031 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:15:53.054 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 21.1597ms
+[2022-04-16 21:15:53.176 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:15:53.176 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 0.2286ms
+[2022-04-16 21:15:53.492 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:15:53.494 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1.9833ms
+[2022-04-16 21:29:11.500 +03:00  INF]  User profile is available. Using 'C:\Users\Big Jay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2022-04-16 21:29:11.818 +03:00  INF]  Now listening on: https://localhost:7049
+[2022-04-16 21:29:11.819 +03:00  INF]  Now listening on: http://localhost:5049
+[2022-04-16 21:29:11.821 +03:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-04-16 21:29:11.822 +03:00  INF]  Hosting environment: Development
+[2022-04-16 21:29:11.822 +03:00  INF]  Content root path: C:\InspireEventManagement\InspireEventManagement\EventManagementAPI\
+[2022-04-16 21:29:13.038 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/index.html - -
+[2022-04-16 21:29:13.458 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/index.html - - - 200 - text/html;charset=utf-8 426.9041ms
+[2022-04-16 21:29:13.580 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - -
+[2022-04-16 21:29:13.583 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/_framework/aspnetcore-browser-refresh.js - - - 200 11994 application/javascript;+charset=utf-8 3.2563ms
+[2022-04-16 21:29:14.219 +03:00  INF]  Request starting HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - -
+[2022-04-16 21:29:14.343 +03:00  INF]  Request finished HTTP/2 GET https://localhost:7049/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 123.2328ms
