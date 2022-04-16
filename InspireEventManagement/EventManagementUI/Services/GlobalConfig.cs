@@ -9,14 +9,19 @@ public class GlobalConfig
         _logger = logger;
     }
 
-    public string ImagesPath()
+    public string LogsPath()
     {
-        return Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), @"EventManagementUI\wwwroot\Images");
+        return Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), @"logs/");
     }
 
     public string[] ImagesFilter()
     {
         return new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
+    }
+
+    public string[] LogsFilter()
+    {
+        return new String[] { "log" };
     }
 
 }

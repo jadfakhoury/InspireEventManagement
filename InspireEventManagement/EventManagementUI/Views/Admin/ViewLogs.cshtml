@@ -1,0 +1,39 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "View Logs";
+}
+
+<h1>View Logs</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <table id="LogssTable" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr role="row" class="clickable-row">
+                            <td>
+                                <span>
+                                    <a href="javascript:void(0)" onclick="ReadLog('@item')">@item</a>
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-9">
+        <textarea id="currentLog" readonly style="width: 100%;"></textarea>
+    </div>
+</div>

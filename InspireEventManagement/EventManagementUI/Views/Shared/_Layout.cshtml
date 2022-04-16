@@ -39,6 +39,9 @@
                             <li class="nav-item" style="padding-left: 15px;">
                                 <a asp-controller="Admin" asp-action="EventsList" class="nav-link text-dark">Manage Events</a>
                             </li>
+                            <li class="nav-item" style="padding-left: 15px;">
+                                <a asp-controller="Admin" asp-action="ViewLogs" class="nav-link text-dark">View Logs</a>
+                            </li>
                         }
                         @if (User.IsInRole("User"))
                         {
@@ -75,7 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script type="text/javascript" src="~/fullcalendar/lib/main.js" ></script>
+    <script type="text/javascript" src="~/fullcalendar/lib/main.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

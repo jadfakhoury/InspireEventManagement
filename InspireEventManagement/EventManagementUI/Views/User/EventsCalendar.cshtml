@@ -21,7 +21,6 @@
         businessHours:true,
         eventClick: function(info) {
         var event = info.event;
-    console.log(event.id);
     location.href='@Url.Action("EventDetails", "User")/' + event.id;
   },
         events: '/User/GetCalendarEvents'

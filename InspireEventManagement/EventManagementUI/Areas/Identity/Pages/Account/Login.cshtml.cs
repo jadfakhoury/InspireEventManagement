@@ -22,12 +22,10 @@ namespace EventManagementUI.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<CustomIdentityUser> _signInManager;
         private readonly UserManager<CustomIdentityUser> _userManager;
-        private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<CustomIdentityUser> signInManager, ILogger<LoginModel> logger, UserManager<CustomIdentityUser> userManager)
+        public LoginModel(SignInManager<CustomIdentityUser> signInManager, UserManager<CustomIdentityUser> userManager)
         {
             _signInManager = signInManager;
-            _logger = logger;
             _userManager = userManager; 
         }
 
@@ -75,8 +73,6 @@ namespace EventManagementUI.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(Input.Email);
@@ -85,7 +81,6 @@ namespace EventManagementUI.Areas.Identity.Pages.Account
                     var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                     if (result.Succeeded)
                     {
-                        _logger.LogInformation("User logged in.");
                         return LocalRedirect(returnUrl);
                     }
                     if (result.RequiresTwoFactor)
@@ -94,7 +89,6 @@ namespace EventManagementUI.Areas.Identity.Pages.Account
                     }
                     if (result.IsLockedOut)
                     {
-                        _logger.LogWarning("User account locked out.");
                         return RedirectToPage("./Lockout");
                     }
                     else

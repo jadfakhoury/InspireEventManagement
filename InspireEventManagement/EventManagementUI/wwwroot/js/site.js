@@ -108,3 +108,20 @@ function Delete(url, id, name, table, listTable) {
         }
     ]);
 }
+
+function ReadLog(fileName) {
+    $.ajax({
+        url: "/Admin/GetLogDetails?fileName=" + fileName,
+        dataType: "text",
+        type: "GET",
+        async: true,
+        processData: false,
+        cache: false,
+        success: function (data) {
+            $("#currentLog").val(data);
+        },
+        error: function (xhr) {
+            $("#currentLog").val(xhr.responseText);
+        }
+    });
+}

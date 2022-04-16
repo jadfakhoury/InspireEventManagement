@@ -277,4 +277,30 @@ public class AdminController : Controller
         }
 
     }
+
+    [HttpGet]
+    public IActionResult ViewLogs()
+    {
+        List<string> logs = GetFilesFrom(_globalConfig.LogsPath(), _globalConfig.LogsFilter()).Select(i => Path.GetFileName(i)).ToList(); 
+        return View(logs);
+    }
+
+    [HttpGet]
+    public async Task<string> GetLogDetails(string fileName)
+    {
+        try
+        {
+            var fs = new FileStream(_globalConfig.LogsPath() + fileName, FileMode.Open,FileAccess.Read, FileShare.ReadWrite);
+            using (var sr = new StreamReader(fs))
+            {
+                string t = await sr.ReadToEndAsync();
+                return t.Replace("\n", "\n\n");
+            }
+        }
+        catch (IOException e)
+        {
+            _logger.LogError(e.ToString());
+            return null;
+        }
+    }
 }
