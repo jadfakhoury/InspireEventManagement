@@ -30,54 +30,53 @@
 <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
 <script>
 
-    $(document).ready(function () {
+$(document).ready(function () {
 
+    $("#UsersTable").DataTable({
+        "processing": true,
+        "serverSide": true,
+        "filter": true,
+        "ajax": {
+            "url": "/Identity/Account/Manage/Users?handler=getusers",
+            "type": "POST",
+            "datatype": "json",
+            "headers": { 'RequestVerificationToken': $('@Html.AntiForgeryToken()').val() }
+        },
+        "columnDefs": [{
+            "targets": [0],
+            "visible": false,
+            "searchable": false
+        }],
+        "columns": [
+            { "data": "id", "name": "Id", "autoWidth": true , "visible": false},
+            { "data": "firstName", "name": "First Name", "autoWidth": true },
+            { "data": "lastName", "name": "Last Name", "autoWidth": true },
+            { "data": "email", "name": "Email", "autoWidth": true },
+            { "data": "nationality", "name": "Nationality", "autoWidth": true },
+            { "data": "gender", "name": "Gender", "autoWidth": true },
+            { "data": "banned", "name": "Banned", "autoWidth": true },
+            {"render": createManageBtn, "data": "id", "targets": [0]},
+    ] });
 
-         $("#UsersTable").DataTable({
-             "processing": true,
-             "serverSide": true,
-             "filter": true,
-             "ajax": {
-                 "url": "/Identity/Account/Manage/Users?handler=getusers",
-                 "type": "POST",
-                 "datatype": "json",
-                 "headers": { 'RequestVerificationToken': $('@Html.AntiForgeryToken()').val() }
-             },
-             "columnDefs": [{
-                 "targets": [0],
-                 "visible": false,
-                 "searchable": false
-             }],
-             "columns": [
-                 { "data": "id", "name": "Id", "autoWidth": true , "visible": false},
-                 { "data": "firstName", "name": "First Name", "autoWidth": true },
-                 { "data": "lastName", "name": "Last Name", "autoWidth": true },
-                 { "data": "email", "name": "Email", "autoWidth": true },
-                 { "data": "nationality", "name": "Nationality", "autoWidth": true },
-                 { "data": "gender", "name": "Gender", "autoWidth": true },
-                 { "data": "banned", "name": "Banned", "autoWidth": true },
-                 {"render": createManageBtn, "data": "id", "targets": [0]},
-         ] });
+    function createManageBtn(id) {
+        return '<button id="banBtn" type="button" onclick="BanUser(\'' + id + '\')" class="btn btn-success btn-xs">Ban/Unban</button>';
+    };
+});
 
-        function createManageBtn(id) {
-            return '<button id="banBtn" type="button" onclick="BanUser(\'' + id + '\')" class="btn btn-success btn-xs">Ban/Unban</button>';
-        };
-     });
-
-        function BanUser(id){
-            var data = {"id" : id};
-            $.ajax({
-                url: "/Identity/Account/Manage/Users?handler=BanUser",
-                type:"POST",
-                headers: {
-                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
-                },
-                dataType:"json",
-                data: data,
-                success: function(){
-                    $("#UsersTable").DataTable().ajax.reload();
-                }
-            });
-        };
+function BanUser(id){
+    var data = {"id" : id};
+    $.ajax({
+        url: "/Identity/Account/Manage/Users?handler=BanUser",
+        type:"POST",
+        headers: {
+            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+        },
+        dataType:"json",
+        data: data,
+        success: function(){
+            $("#UsersTable").DataTable().ajax.reload();
+        }
+    });
+};
 </script>
  }

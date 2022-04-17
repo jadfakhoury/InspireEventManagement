@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using EventManagementLibrary.Models;
+﻿using EventManagementLibrary.Models;
 using EventManagementLibrary.DBContext;
 using EventManagementLibrary.Interfaces;
 

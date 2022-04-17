@@ -2,13 +2,6 @@
 
 public class GlobalConfig
 {
-    private readonly ILogger<GlobalConfig> _logger;
-
-    public GlobalConfig(ILogger<GlobalConfig> logger)
-    {
-        _logger = logger;
-    }
-
     public string LogsPath()
     {
         return Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), @"logs/");

@@ -3,7 +3,6 @@ using EventManagementUI.Models;
 using EventManagementUI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System.Security.Claims;
 
 namespace EventManagementUI.Controllers;
@@ -40,7 +39,9 @@ public class UserController : Controller
         try
         {
             Claim userClaim = _globalMethods.GetUserClaim(User);
-            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventsList", userClaim);
+            HttpResponseMessage response = 
+                await _apiRequests.GETHttpRequest(
+                            _configuration["APIController"] + "/GetEventsList", userClaim);
             if (response.IsSuccessStatusCode)
             {
                 List<Event> events = new List<Event>();
@@ -69,13 +70,16 @@ public class UserController : Controller
         try
         {
             Claim userClaim = _globalMethods.GetUserClaim(User);
-            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventById/", userClaim, id);
+            HttpResponseMessage response = await _apiRequests.GETHttpRequest(
+                                        _configuration["APIController"] + "/GetEventById/", userClaim, id);
             if (response.IsSuccessStatusCode)
             {
                 Event eventObj = await _globalMethods.Deserialize<Event>(response);
                 EventViewModel eventDetails = new EventViewModel { Event = eventObj };
                 var imgPath = "./wwwroot/Images/" + eventObj.Images.Trim();
-                ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter()).Select(i => Path.GetFileName(i)).ToList();
+                ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter())
+                                        .Select(i => Path.GetFileName(i)).ToList();
+
                 return View(eventDetails);
             }
             else
@@ -105,7 +109,8 @@ public class UserController : Controller
     public async Task<string> GetCalendarEvents(string start, string end)
     {
         Claim userClaim = _globalMethods.GetUserClaim(User);
-        HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventsList", userClaim);
+        HttpResponseMessage response = await _apiRequests.GETHttpRequest(
+                                        _configuration["APIController"] + "/GetEventsList", userClaim);
         var events = await response.Content.ReadAsStringAsync();
         return events;
     }

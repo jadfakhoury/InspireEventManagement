@@ -21,7 +21,7 @@ public class AdminController : Controller
 
 
     public AdminController(ILogger<AdminController> logger, GlobalMethods globalMethods,
-        APIRequests apiRequests, IConfiguration configuration, GlobalConfig globalConfig)
+                            APIRequests apiRequests, IConfiguration configuration, GlobalConfig globalConfig)
     {
         _logger = logger;
         _globalMethods = globalMethods;
@@ -45,7 +45,9 @@ public class AdminController : Controller
         try
         {
             Claim userClaim = _globalMethods.GetUserClaim(User);
-            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventsList", userClaim);
+            HttpResponseMessage response = await _apiRequests.GETHttpRequest(
+                                            _configuration["APIController"] + "/GetEventsList", userClaim);
+
             if (response.IsSuccessStatusCode)
             {
                 List<Event> majorServices = new List<Event>();
@@ -84,7 +86,8 @@ public class AdminController : Controller
                 Claim userClaim = _globalMethods.GetUserClaim(User);
                 Event newEvent = eventModel.Event;
 
-                HttpResponseMessage response = await _apiRequests.POSTHttpRequest<Event>(_configuration["APIController"] + "/PostNewEvent", newEvent, userClaim);
+                HttpResponseMessage response = await _apiRequests.POSTHttpRequest<Event>(
+                                                _configuration["APIController"] + "/PostNewEvent", newEvent, userClaim);
                 HttpResponseMessage uploadSuccess = new HttpResponseMessage();
                 string folderId = "";
                 if (response.IsSuccessStatusCode)
@@ -92,7 +95,8 @@ public class AdminController : Controller
                     folderId = await response.Content.ReadAsStringAsync();
                     if (eventModel.detailsImageList != null)
                     {
-                        uploadSuccess = await _apiRequests.POSTUploadHttpRequest(_configuration["APIController"] + "/UploadFileList", eventModel.detailsImageList, folderId, userClaim);
+                        uploadSuccess = await _apiRequests.POSTUploadHttpRequest(_configuration["APIController"] + 
+                                            "/UploadFileList", eventModel.detailsImageList, folderId, userClaim);
 
                         if (uploadSuccess.IsSuccessStatusCode)
                             newEvent.Images = folderId;
@@ -112,7 +116,7 @@ public class AdminController : Controller
             {
                 ResponseModel error = new ResponseModel(e);
                 _logger.LogError("\nSource: HomeController\n" + error.ToString());
-                return View("Error", error);
+                return View("Error");
             }
         }
         else
@@ -133,14 +137,16 @@ public class AdminController : Controller
         try
         {
             Claim userClaim = _globalMethods.GetUserClaim(User);
-            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventById/", userClaim, id);
+            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + 
+                                                "/GetEventById/", userClaim, id);
             if (response.IsSuccessStatusCode)
             {
                 Event eventObj = await _globalMethods.Deserialize<Event>(response);
                 EventViewModel eventDetails = new EventViewModel { Event = eventObj };
                 var imgPath = "./wwwroot/Images/" + eventObj.Images.Trim();
                 if(Directory.Exists(imgPath))
-                    ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter()).Select(i => Path.GetFileName(i)).ToList();
+                    ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter())
+                                            .Select(i => Path.GetFileName(i)).ToList();
 
                 return View(eventDetails);
             }
@@ -178,26 +184,29 @@ public class AdminController : Controller
         try
         {
             Claim userClaim = _globalMethods.GetUserClaim(User);
-            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] + "/GetEventById/", userClaim, id);
+            HttpResponseMessage response = await _apiRequests.GETHttpRequest(_configuration["APIController"] 
+                                                + "/GetEventById/", userClaim, id);
             if (response.IsSuccessStatusCode)
             {
                 Event eventObj = await _globalMethods.Deserialize<Event>(response);
                 EventViewModel eventDetails = new EventViewModel { Event = eventObj };
                 var imgPath = "./wwwroot/Images/" + eventObj.Images.Trim();
                 if (Directory.Exists(imgPath))
-                    ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter()).Select(i => Path.GetFileName(i)).ToList();
+                    ViewData["ImagesList"] = GetFilesFrom(imgPath, _globalConfig.ImagesFilter())
+                                            .Select(i => Path.GetFileName(i)).ToList();
                 return View(eventDetails);
             }
             else
             {
                 ResponseModel responseObject = await _globalMethods.Deserialize<ResponseModel>(response);
                 _logger.LogError(responseObject.ToString());
-                return View("Error", responseObject);
+                return View("Error");
             }
         }
         catch (Exception ex)
         {
-            return RedirectToAction("Error", "Home", new { ErrorTitle = "Database Error", ErrorMessage = ex.Message.ToString() });
+            return RedirectToAction("Error", "Home", new { ErrorTitle = "Database Error", 
+                                                           ErrorMessage = ex.Message.ToString() });
         }
     }
 
@@ -211,13 +220,15 @@ public class AdminController : Controller
             {
                 Claim userClaim = _globalMethods.GetUserClaim(User);
                 Event toEdit = eventViewModel.Event;
-                HttpResponseMessage response = await _apiRequests.POSTHttpRequest<Event>(_configuration["APIController"] + "/EditEvent", toEdit, userClaim);
+                HttpResponseMessage response = await _apiRequests.POSTHttpRequest<Event>(
+                                                    _configuration["APIController"] + "/EditEvent", toEdit, userClaim);
                 HttpResponseMessage uploadSuccess = new HttpResponseMessage();
 
                 if (response.IsSuccessStatusCode)
                 {
                     if(eventViewModel.detailsImageList != null)
-                        uploadSuccess = await _apiRequests.POSTUploadHttpRequest(_configuration["APIController"] + "/UploadFileList", eventViewModel.detailsImageList, eventViewModel.Event.Images.Trim(), userClaim);
+                        uploadSuccess = await _apiRequests.POSTUploadHttpRequest(
+                                        _configuration["APIController"] + "/UploadFileList", eventViewModel.detailsImageList, eventViewModel.Event.Images.Trim(), userClaim);
                 }
                 return RedirectToAction("EventsList", new { alert = "Event Edited Successfully" });
             }
@@ -246,7 +257,8 @@ public class AdminController : Controller
 
             if (id > -1)
             {
-                HttpResponseMessage response = await _apiRequests.DELETEHttpRequest(_configuration["APIController"] + "/DeleteEvent/", id, userClaim);
+                HttpResponseMessage response = await _apiRequests.DELETEHttpRequest(
+                                                _configuration["APIController"] + "/DeleteEvent/", id, userClaim);
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToAction("EventsList");
@@ -273,7 +285,7 @@ public class AdminController : Controller
         {
             ResponseModel error = new ResponseModel(e);
             _logger.LogError("\nSource: HomeController\n" + error.ToString());
-            return View("Error", error);
+            return View("Error");
         }
 
     }
@@ -281,7 +293,8 @@ public class AdminController : Controller
     [HttpGet]
     public IActionResult ViewLogs()
     {
-        List<string> logs = GetFilesFrom(_globalConfig.LogsPath(), _globalConfig.LogsFilter()).Select(i => Path.GetFileName(i)).ToList(); 
+        List<string> logs = GetFilesFrom(_globalConfig.LogsPath(), _globalConfig.LogsFilter())
+                                .Select(i => Path.GetFileName(i)).ToList(); 
         return View(logs);
     }
 
@@ -290,7 +303,9 @@ public class AdminController : Controller
     {
         try
         {
-            var fs = new FileStream(_globalConfig.LogsPath() + fileName, FileMode.Open,FileAccess.Read, FileShare.ReadWrite);
+            var fs = new FileStream(_globalConfig.LogsPath() + fileName, FileMode.Open,
+                                            FileAccess.Read, FileShare.ReadWrite);
+
             using (var sr = new StreamReader(fs))
             {
                 string t = await sr.ReadToEndAsync();

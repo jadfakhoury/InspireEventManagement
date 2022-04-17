@@ -1,12 +1,11 @@
 ﻿using EventManagementLibrary.Models;
 
-namespace EventManagementUI.Models
-{
-    public class EventViewModel
-    {
-        public Event Event { get; set; }
+namespace EventManagementUI.Models;
 
-        [System.Text.Json.Serialization.JsonIgnore]
-        public List<IFormFile> detailsImageList { get; set; }
-    }
+public class EventViewModel
+{
+    public Event Event { get; set; }
+
+    [System.Text.Json.Serialization.JsonIgnore]
+    public List<IFormFile> detailsImageList { get; set; }
 }

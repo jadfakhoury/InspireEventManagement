@@ -69,12 +69,6 @@
 @section Scripts{
 <script>
 
-    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
-             event.preventDefault();
-             const lightbox = new Lightbox(el, options);
-             lightbox.show();
-         });
-
  $(document).ready(function () {
     $("#clearBtn").on("click", function () {
         $("#multiUploadBtn").val("");
@@ -84,30 +78,29 @@
     $("#uploadBtn").attr("required", "required");
 
 
-
-
-        $('#datetimes').daterangepicker({
+    $('#datetimes').daterangepicker({
         timePicker: true,
         startDate: moment().startOf('hour'),
         endDate: moment().startOf('hour').add(32, 'hour'),
         locale: {
             format: 'DD-MMM-YY hh:mm:ss'
-            }
-        });
+        }
+    });
 
-        $('#Event_EventStart').val($("#datetimes").data("daterangepicker").startDate.format('DD-MMM-YY hh:mm:ss'));
-        $('#Event_EventEnd').val($("#datetimes").data("daterangepicker").endDate.format('DD-MMM-YY hh:mm:ss'));
-
-
+    $('#Event_Start').val($("#datetimes").data("daterangepicker").startDate.format('DD-MMM-YY hh:mm:ss'));
+    $('#Event_End').val($("#datetimes").data("daterangepicker").endDate.format('DD-MMM-YY hh:mm:ss'));
 });
 
-
+$(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    event.preventDefault();
+    const lightbox = new Lightbox(el, options);
+    lightbox.show();
+});
 
 $('#datetimes').on('apply.daterangepicker', function(ev, picker) {
-        $('#Event_EventStart').val(picker.startDate.format('DD-MMM-YY hh:mm:ss'));
-        $('#Event_EventEnd').val(picker.endDate.format('DD-MMM-YY hh:mm:ss'));
+    $('#Event_Start').val(picker.startDate.format('DD-MMM-YY hh:mm:ss'));
+    $('#Event_End').val(picker.endDate.format('DD-MMM-YY hh:mm:ss'));
 });
-
 
 </script>
 }

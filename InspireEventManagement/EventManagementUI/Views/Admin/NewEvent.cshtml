@@ -1,10 +1,10 @@
 ﻿@model EventViewModel
 
 @{
-    ViewData["Title"] = "NewEvent";
+    ViewData["Title"] = "New Event";
 }
 
-<h1>NewEvent</h1>
+<h1>New Event</h1>
 
 <hr />
 <div class="row">
@@ -85,29 +85,23 @@
 
     $("#uploadBtn").attr("required", "required");
 
+    $('#datetimes').daterangepicker({
+    timePicker: true,
+    startDate: moment().startOf('hour'),
+    endDate: moment().startOf('hour').add(32, 'hour'),
+    locale: {
+        format: 'DD-MMM-YY hh:mm:ss'
+        }
+    });
 
-
-
-        $('#datetimes').daterangepicker({
-        timePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-            format: 'DD-MMM-YY hh:mm:ss'
-            }
-        });
-
-        $('#Event_EventStart').val($("#datetimes").data("daterangepicker").startDate.format('DD-MMM-YY hh:mm:ss'));
-        $('#Event_EventEnd').val($("#datetimes").data("daterangepicker").endDate.format('DD-MMM-YY hh:mm:ss'));
-
+    $('#Event_Start').val($("#datetimes").data("daterangepicker").startDate.format('DD-MMM-YY hh:mm:ss'));
+    $('#Event_End').val($("#datetimes").data("daterangepicker").endDate.format('DD-MMM-YY hh:mm:ss'));
 
 });
 
-
-
 $('#datetimes').on('apply.daterangepicker', function(ev, picker) {
-        $('#Event_EventStart').val(picker.startDate.format('DD-MMM-YY hh:mm:ss'));
-        $('#Event_EventEnd').val(picker.endDate.format('DD-MMM-YY hh:mm:ss'));
+        $('#Event_Start').val(picker.startDate.format('DD-MMM-YY hh:mm:ss'));
+        $('#Event_End').val(picker.endDate.format('DD-MMM-YY hh:mm:ss'));
 });
 
 </script>

@@ -2,15 +2,11 @@
 using EventManagementLibrary.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Net.Http.Formatting;
-using System.Text;
 
 namespace EventManagementAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-
 public class EventsController : ControllerBase
 {
     private readonly ILogger<EventsController> _logger;
@@ -69,7 +65,8 @@ public class EventsController : ControllerBase
                 return NotFound();
 
             string[] fileDescription = files[0].FileName.Split('\\');
-            string directoryPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), @"EventManagementUI\wwwroot\Images\" + fileDescription[0]);
+            string directoryPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), 
+                                    @"EventManagementUI\wwwroot\Images\" + fileDescription[0]);
             if(!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
@@ -122,7 +119,8 @@ public class EventsController : ControllerBase
         {
             await _genericCRUD.Delete<Event>(id);
             string dirName = id.ToString();
-            var path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), @"EventManagementUI\wwwroot\Images\" + dirName);
+            var path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).ToString(), 
+                                @"EventManagementUI\wwwroot\Images\" + dirName);
             System.IO.Directory.Delete(path,true);
             return Ok();
         }

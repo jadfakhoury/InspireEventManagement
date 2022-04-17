@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace EventManagementLibrary.Models
 {
-    public partial class Event :IDBObject
+    public partial class Event : IDBObject
     {
         public int Id { get; set; }
 
