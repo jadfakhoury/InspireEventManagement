@@ -32,7 +32,7 @@ public class EventsController : ControllerBase
         {
             ResponseModel error = new ResponseModel(e);
             _logger.LogError("\nSource: HomepageAdmin\n" + error.ToString());
-            throw;
+            return BadRequest(error);
         }
     }
 
@@ -52,7 +52,7 @@ public class EventsController : ControllerBase
         {
             ResponseModel error = new ResponseModel(e);
             _logger.LogError("\nSource: HomepageAdmin\n" + error.ToString());
-            throw;
+            return BadRequest(error);
         }
     }
 

@@ -114,8 +114,6 @@ public class APIRequests
                 publicMethods.InitiateHttpClient(tokenString, httpClient2);
                 MultipartFormDataContent content;
 
-
-
                 if (files.Count > 0)
                 {
                     using (content = new MultipartFormDataContent())

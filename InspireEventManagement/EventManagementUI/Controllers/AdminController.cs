@@ -99,6 +99,14 @@ public class AdminController : Controller
                         if (uploadSuccess.IsSuccessStatusCode)
                             newEvent.Images = folderId;
                     }
+                    else
+                    {
+
+                        if (!Directory.Exists("./wwwroot/Images" + folderId))
+                        {
+                            Directory.CreateDirectory("./wwwroot/Images" + folderId);
+                        }
+                    }
 
                     return RedirectToAction("EventsList", new { alert = "Event Created Successfully" });
                 }
