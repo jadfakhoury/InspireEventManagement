@@ -9,7 +9,7 @@ public class GlobalConfig
 
     public string[] ImagesFilter()
     {
-        return new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg" };
+        return new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp", "svg", "jfif" };
     }
 
     public string[] LogsFilter()

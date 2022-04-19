@@ -10,6 +10,7 @@ namespace EventManagementUI.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            
         }
         public DbSet<EventManagementLibrary.Models.Event> Event { get; set; }
     }

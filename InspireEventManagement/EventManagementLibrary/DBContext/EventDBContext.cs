@@ -15,7 +15,7 @@ namespace EventManagementLibrary.DBContext
         {
         }
 
-        public virtual DbSet<Event> Events { get; set; } = null!;
+        public virtual DbSet<Event> Event { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
