@@ -51,7 +51,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("User", policy => policy.RequireClaim("Role", "Admin", "User"));
 });
 
-builder.Services.AddScoped<EventsGenericCRUD>();
+builder.Services.AddScoped<GenericCRUD<EventDBContext>>();
 
 
 

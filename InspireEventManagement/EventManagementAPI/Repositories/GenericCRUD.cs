@@ -1,15 +1,16 @@
 ﻿using EventManagementLibrary.Models;
 using EventManagementLibrary.DBContext;
 using EventManagementLibrary.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventManagementAPI.Repositories;
 
-public class EventsGenericCRUD
+public class GenericCRUD<Y> where Y : DbContext
 {
-    private readonly EventDBContext dbContext;
-    private readonly ILogger<EventsGenericCRUD> _logger;
+    private readonly Y dbContext;
+    private readonly ILogger<GenericCRUD<Y>> _logger;
 
-    public EventsGenericCRUD(ILogger<EventsGenericCRUD> logger, EventDBContext _dbContext)
+    public GenericCRUD(ILogger<GenericCRUD<Y>> logger, Y _dbContext)
     {
         _logger = logger;
         dbContext = _dbContext;

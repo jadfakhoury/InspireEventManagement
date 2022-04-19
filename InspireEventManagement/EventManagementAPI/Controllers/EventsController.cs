@@ -1,4 +1,5 @@
 ﻿using EventManagementAPI.Repositories;
+using EventManagementLibrary.DBContext;
 using EventManagementLibrary.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,9 @@ namespace EventManagementAPI.Controllers;
 public class EventsController : ControllerBase
 {
     private readonly ILogger<EventsController> _logger;
-    private readonly EventsGenericCRUD _genericCRUD;
+    private readonly GenericCRUD<EventDBContext> _genericCRUD;
 
-    public EventsController(ILogger<EventsController> logger, EventsGenericCRUD genericCRUD)
+    public EventsController(ILogger<EventsController> logger, GenericCRUD<EventDBContext> genericCRUD)
     {
         _logger = logger;
         _genericCRUD = genericCRUD;
