@@ -41,8 +41,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 
-builder.Services.AddTransient<GlobalMethods>();
-builder.Services.AddTransient<APIRequests>();
+builder.Services.AddScoped<GlobalMethods>();
+builder.Services.AddScoped<APIRequests>();
 builder.Services.AddSingleton<GlobalConfig>();
 
 
