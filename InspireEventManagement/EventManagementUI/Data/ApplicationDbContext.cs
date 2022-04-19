@@ -1,17 +1,15 @@
 ﻿using EventManagementUI.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using EventManagementLibrary.Models;
 
-namespace EventManagementUI.Data
+namespace EventManagementUI.Data;
+
+public class ApplicationDbContext : IdentityDbContext<CustomIdentityUser>
 {
-    public class ApplicationDbContext : IdentityDbContext<CustomIdentityUser>
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-            
-        }
-        public DbSet<EventManagementLibrary.Models.Event> Event { get; set; }
+        
     }
+    public DbSet<EventManagementLibrary.Models.Event> Event { get; set; }
 }

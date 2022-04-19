@@ -1,5 +1,4 @@
 ﻿using EventManagementLibrary.Models;
-using EventManagementLibrary.DBContext;
 using EventManagementLibrary.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,12 +1,10 @@
-﻿
-using EventManagementLibrary.Models;
+﻿using EventManagementLibrary.Models;
 using EventManagementUI.Models;
 using EventManagementUI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Security.Claims;
-using System.Text;
 
 namespace EventManagementUI.Controllers;
 

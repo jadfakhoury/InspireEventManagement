@@ -1,10 +1,8 @@
-using EventManagementLibrary.DBContext;
 using EventManagementUI.Data;
 using EventManagementUI.Models;
 using EventManagementUI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
